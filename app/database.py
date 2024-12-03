@@ -1,16 +1,15 @@
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from decouple import config
 
 # Read database configuration from environment variables
-DATABASE_URL = config("DATABASE_URL")
-DATABASE_NAME = config("DATABASE_NAME")
+MONGODB_URL = "mongodb+srv://rishabjain0411:WggbMVStEft1pTSG@m0-cluster-atlas.giqqf.mongodb.net/"
+MONGODB_NAME = "Student"
 
 # Create a new client and connect to the server
-client = MongoClient(DATABASE_URL, server_api=ServerApi('1'))
+client = MongoClient(MONGODB_URL, server_api=ServerApi('1'))
 
 # client = MongoClient(uri, server_api=ServerApi('1'))
-db = client[DATABASE_NAME]
+db = client[MONGODB_NAME]
 student_collection = db["students"]
     
